@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+
+{% block main %}
+    {% for i in data %}
+        <p>{{ i.author }} | {{ i.title }} | {{ i.liked }}</p>
+        <form action="{% url 'like_url' %}" method="POST">
+            {% csrf_token %}
+            <input type="hidden" name="post_id" value="{{ i.id }}">
+            {% if user not in i.liked.all %}
+                <button style="color: #00dd00;">Like</button>
+            {% else %}
+                <button style="color: red;">Unlike</button>
+            {% endif %}
+        </form>
+        <strong>{{ i.liked.all.count }} likes</strong>
+    {% endfor %}
+{% endblock %}

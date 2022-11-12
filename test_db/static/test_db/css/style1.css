@@ -1,0 +1,30 @@
+.some {
+    display: flex;
+}
+
+h1 {
+    color: blue;
+}
+
+a {
+    text-decoration: none;
+    color: blue;
+}
+
+button {
+    background: white;
+    height: 35px;
+    margin: auto 10px auto 0;
+    border-radius: 5px;
+}
+
+p.information {
+    font-size: 24px;
+}
+
+p.title_name {
+    font-size: 40px;
+}
+
+
+

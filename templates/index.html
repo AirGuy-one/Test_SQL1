@@ -1,0 +1,27 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block add_to_head %}
+    <link rel="stylesheet" href="{% static 'test_db/css/style1.css' %}">
+{% endblock %}
+
+{% block main %}
+    <p class="title_name" style=""><b>This is main page</b>{% if user.is_authenticated %} | <a href="{% url 'add_url' %}">Add smth to database</a> | {% endif %}{{ user.username }}</p>
+    {% block my_cities %}
+        {% for i in data %}
+            <div class="some">
+                <button type="submit"><a href="{% url 'home' %}">show</a></button>
+                <p class="information">{{ i.title }} | {{ i.text }} | {{ i.created }} | {{ i.population }} | {{ i.mayor }} | {{ likes }}</p>
+            </div>
+            <input type="hidden" name="post_id" value="{{ i.id }}">
+        {% endfor %}
+    {% endblock %}
+    <h1>H1 text</h1>
+    {% if user.is_authenticated %}
+        <p style="font-size: 25px;">Authorized user is <b>{{ user.username }}</b></p>
+        <p><a href="{% url 'logout' %}">Выйти из аккаунта</a></p>
+    {% else %}
+        <p><a href="{% url 'login' %}">Войти в аккаунт</a></p>
+    {% endif %}
+
+{% endblock %}

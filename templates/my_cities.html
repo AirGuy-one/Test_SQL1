@@ -1,0 +1,12 @@
+{% extends 'index.html' %}
+
+{% block my_cities %}
+    {% for i in data %}
+        {% if i.mayor.username == user.username %}
+            <div class="some">
+                <button type="submit"><a href="{% url 'home' %}">show</a></button>
+                <p class="information">{{ i.title }} | {{ i.text }} | {{ i.created }} | {{ i.population }} | {{ i.mayor }}</p>
+            </div>
+        {% endif %}
+    {% endfor %}
+{% endblock %}

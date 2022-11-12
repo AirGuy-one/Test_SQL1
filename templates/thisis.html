@@ -1,0 +1,7 @@
+{% extends 'base.html' %}
+
+{% block main %}
+    {% load static %}
+    <p>{% static 'pepsi.png' %}</p>
+    <img src="{% static 'pepsi.png' %}" alt="">
+{% endblock %}
